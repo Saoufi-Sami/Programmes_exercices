@@ -46,6 +46,33 @@ afficher_table(2,"*",power_callback)'''
 # Cette fonction callback sera appelée à l’intérieur pour faire le calcul.
 # Ça permet de réutiliser le même code avec des comportements différents.
 
+# Exemple concret pour comprendre les callbacks et le fameux ( appeler plus tard ) :
+#
+# Imagine une porte :
+# - "ouvrir_porte" = action d’ouvrir la porte
+# - "quelqu’un sonne" = moment déclenché dans le code (comme un print)
+#
+# Exemple :
+#
+# def attendre_qu_on_sonne(action):
+#     print("Quelqu’un sonne")   # événement (comme "début")
+#     action()                   # on ouvre la porte à ce moment-là
+#
+# Ici, on passe la fonction SANS parenthèses :
+# attendre_qu_on_sonne(ouvrir_porte)
+#
+# → ouvrir_porte n’est PAS exécutée tout de suite
+# → elle sera exécutée PLUS TARD, au moment où "quelqu’un sonne"
+#
+# Par contre si on met des parenthèses :
+# attendre_qu_on_sonne(ouvrir_porte())
+#
+# → ouvrir_porte() s’exécute DIRECTEMENT (avant même "quelqu’un sonne") ❌
+#
+# Conclusion :
+# - sans () → on passe une action (callback)
+# - avec () → on exécute immédiatement
+
 def afficher_table(n,operateur_str,operateur_cbk):
     for i in range(1,10):
         print(i,operateur_str,n,"=",operateur_cbk(i,n))
