@@ -68,7 +68,7 @@ afficher_table(2,"*",power_callback)'''
 # attendre_qu_on_sonne(ouvrir_porte())
 #
 # → ouvrir_porte() s’exécute DIRECTEMENT (avant même "quelqu’un sonne") ❌
-#
+#Avant le callback (action()), d’autres fonctions peuvent s’exécuter comme verifier_identite(), puis seulement après on appelle le callback
 # Conclusion :
 # - sans () → on passe une action (callback)
 # - avec () → on exécute immédiatement
