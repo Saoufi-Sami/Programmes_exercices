@@ -28,3 +28,42 @@ print(somme(5,35,6,4,7,5,4))'''
 #
 # On additionne chaque valeur dans la variable "resultat"
 # puis on retourne le total à la fin avec "return resultat"
+
+
+# Troisieme methode
+def somme(titre,**nombres):
+    resultat = 0
+    for n in nombres.values():
+        resultat += n
+    return resultat
+
+print(somme("somme des notes", maths=5,geo=12,anglais=6))
+
+# **nombres permet de passer des arguments nommés (clé=valeur)
+# Ils sont regroupés dans un dictionnaire "nombres"
+#
+# Exemple :
+# somme("titre", maths=5, geo=12) → nombres = {"maths": 5, "geo": 12}
+#
+# .values() permet de récupérer uniquement les valeurs du dictionnaire
+# si on avais fais .keys on recup les clé par ex = maths
+# On parcourt ces valeurs avec une boucle pour faire la somme
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
