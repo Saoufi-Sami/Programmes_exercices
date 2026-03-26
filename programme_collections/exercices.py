@@ -16,8 +16,12 @@ while True:
     if nouveau_nom == "":
         break
     noms.append(nouveau_nom)
+
+print()
+print("Noms des personnes :")
+noms.sort() # ordre alphabetique A-Z a-z
 for nom in noms:
-    print(nom)
+    print("    " + nom)
 
 
 
