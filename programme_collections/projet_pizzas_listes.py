@@ -1,11 +1,17 @@
 
 
 def ajouter_pizzas_utilisateur(collection):
-    reponse = input("Quelle pizza vous voulez ajouter ?")
-    if reponse == "":
-        ajouter_pizzas_utilisateur(collection)
+    p = input("Quelle pizza vous voulez ajouter ? ")
+    if pizza_existe(p,collection) :
+        print("ERREUR la Pizza existe deja")
     else:
-     collection.append(reponse)
+        collection.append(p)
+
+def pizza_existe(e,collection):
+    if e in collection:
+        return True
+    else:
+        return False
 
 
 def afficher(collection):
@@ -20,9 +26,11 @@ def afficher(collection):
     print("Derniere pizza : " +collection[-1])
 
 
-
-
 pizzas = ["4 fromages", "végétarienne", "hawai", "calzone"]
 vide =()
 ajouter_pizzas_utilisateur(pizzas)
 afficher(pizzas)
+
+'''if p == "":
+    ajouter_pizzas_utilisateur(collection)
+else:'''
