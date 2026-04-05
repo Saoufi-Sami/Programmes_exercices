@@ -1,43 +1,51 @@
+# def tri_personnalise(e):
+#    return len(e)
 
 
-def ajouter_pizzas_utilisateur(collection):
-    p = input("Quelle pizza vous voulez ajouter ? ")
-    if p.lower() in collection :
-        print("ERREUR la Pizza existe deja")
+def afficher(collection, n_premiers_elements=-1):
+    # "---- LISTE DES PIZZAS (4) ----"
+    # afficher les pizzas 1 pizza par ligne
+    # "AUCUNE PIZZA"
+    # collection.sort(reverse=True, key=tri_personnalise)
+    c = collection
+    if not n_premiers_elements == -1:
+        c = collection[:n_premiers_elements]
+
+    nb_pizzas = len(c)
+    if nb_pizzas == 0:
+        print("AUCUNE PIZZA")
+        return
+
+    print(f"---- LISTE DES PIZZAS ({nb_pizzas}) ----")
+    for i in c:
+        print(i)
+    print()
+    print("Première pizza: " + c[0])
+    print("Dernière pizza: " + c[-1])
+    # première pizza
+    # la dernière pizza
+
+
+def ajouter_pizza_utilisateur(collection):
+    p = input("Pizza à ajouter: ")
+    #if pizza_existe(p, collection):
+    if p.lower() in collection:
+        print("ERREUR : Cette pizza existe déjà")
     else:
         collection.append(p)
 
-'''def pizza_existe(e,collection):
-    if e in collection:
-        return True
-    else:
-        return False'''
-#def tri_personnalise(e):
-#    return len(e)
 
-def afficher(collection):
-    #collection.sort(reverse=True)
-    #collection.sort(key=tri_personnalise)
-    #collection.sort(reverse=True,key=tri_personnalise)
-    if not collection :
-        print("AUCUNE PIZZA")
-        return
-    print(f"---- LISTE DES PIZZAS ({len(collection)}) ----")
-    for i in collection:
-        print(i)
-    print()
-    print("Premiere pizza : " + collection[0])
-    print("Derniere pizza : " +collection[-1])
-
+# def pizza_existe(e, collection):
+#     for i in collection:
+#         if i == e:
+#             return True
+#     return False
 
 pizzas = ["4 fromages", "végétarienne", "hawai", "calzone"]
-vide =()
-ajouter_pizzas_utilisateur(pizzas)
-afficher(pizzas)
 
-'''if p == "":
-    ajouter_pizzas_utilisateur(collection)
-else:'''
+# pizza_existe -> bool
+#   True : la pizza existe -> print ("ERREUR : la pizza existe déjà")
+#   False : elle n'existe pas -> append
+ajouter_pizza_utilisateur(pizzas)
 
-# lower() -> minuscules
-# upper() -> majuscules
+afficher(pizzas, 2)
