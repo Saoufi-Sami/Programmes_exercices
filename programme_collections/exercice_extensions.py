@@ -16,22 +16,37 @@ definition_extensions = (("doc", "Document Word"),
                         "jpeg": "Image JPEG"}"""
 
 
+
+# Version 1 : boucle classique
+# Ici, chaque "element" est un tuple comme ("doc", "Document Word")
+# On doit accéder aux valeurs avec des index :
+# element[0] = extension
+# element[1] = description
+
+#for element in definition_extensions:
+ #   if extension == element[0]:
+ #       print(fichier + " (" + element[1] + ")")
+
+
+
 for fichier in fichiers:
     trouve = False
     if ("." in fichier):
         extension = fichier.split(".")[-1].upper()
-        for element in definition_extensions:
-            if extension == element[0].upper():
+        for ext, description in definition_extensions:
+            if extension == ext.upper():
                 trouve=True
-                print (fichier + " (" + element[1] + ")")
+                print (fichier + " (" + description + ")")
         if not trouve:
          print(fichier + " (Extension non connue)")
 
     else :
         print (fichier + " (Aucune extension)")
-
-
-
+# Version 2 : unpacking (déballage)
+# Python "ouvre" directement le tuple pour nous
+# ext = element[0]
+# description = element[1]
+# => code plus lisible et plus propre
 
 
 
